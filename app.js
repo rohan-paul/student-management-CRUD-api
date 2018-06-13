@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/students', students);
 /* The above line is for mounting the router on the app. Meaning whenever, I am going to  localhost:3000/users - users route will be rendered. app.use() is intended for binding middleware to your application. The path is a "mount" or "prefix" path and limits the middleware to only apply to any paths requested that begin with it.
 
 In other words it means, I want localhost:3000/users route to go and mount usersRouter.

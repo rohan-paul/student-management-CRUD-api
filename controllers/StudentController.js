@@ -4,7 +4,6 @@ const Student = require('../models/Student');
 let StudentController = {};
 
 // function to show list of students
-
 StudentController.list = function (req, res) {
     Student.find({}).exec(function (err, students) {
         if (err) {
@@ -22,10 +21,9 @@ In mongoose, exec method will execute the query and return a Promise. Here in th
 B> All callbacks in Mongoose use the pattern: callback(error, result). If an error occurs executing the query, the error parameter will contain an error document, and result will be null. If the query is successful, the error parameter will be null, and the result will be populated with the results of the query.
 */
 
-// function to show single student by id
-
+// function to show single student by id for which I will have a corresponding route to Get single student by id
 StudentController.show = function(req, res) {
-    Student.find({_id: req.params.id}).exec(function(err, student) {
+    Student.findOne({_id: req.params.id}).exec(function(err, student) {
         if(err) {
             console.log("Error : ", err);
         } else {
@@ -40,16 +38,79 @@ StudentController.create = function(req, res) {
 }
 
 //function to save new student
-
 StudentController.save = function(req, res) {
     var student = new Student(req.body);
 
     student.save(function(err) {
         if(err) {
             console.log(err);
-            res.render("../views/students/create")
+            res.render("../views/students1/create")
         } else {
             console.log("Successfully created a student");
+            res.redirect('/students/show/' + student._id);
         }
     })
 }
+
+// Edit a student
+StudentController.edit = function(req, res) {
+    Student.findOne({_id: req.params.id}).exec(function(err, student) {
+        if(err) {
+            console.log("Error : ", err);
+        } else {
+            res.render("../views/students/edit", {student: student})
+        }
+    })
+}
+
+// Update a student
+StudentController.update = function(req, res) {
+    Student.findByIdAndUpdate(req.params.id, {
+        $set: {
+            name: req.body.name,
+            address: req.body.address,
+            position: req.body.position,
+            salary: req.body.salary
+        }
+    }, {new: true}, function(err, student) {
+        if (err) {
+            console.log("Error : ", err);
+            res.render("../views/students/edit", {student: req.body});
+        }
+        res.redirect('/students/show/' + student._id);
+    });
+};
+
+/* http://mongoosejs.com/docs/api.html#findbyidandupdate_findByIdAndUpdate
+
+Example of the format of the findByIdAndUpdate()
+
+Model.findByIdAndUpdate(id, { name: 'jason bourne' }, options, callback)
+In the above the part < {new: true} > is my options and after which I am passing the callback
+< function(err, student) {} >
+
+https://docs.mongodb.com/manual/reference/operator/update/set/
+The $set operator replaces the value of a field with the specified value.
+*/
+
+//Delete a student
+StudentController.delete = function(req, res) {
+    Student.remove({_id: req.params.id}, function(err) {
+        if (err) {
+            console.log(err);
+        }  else {
+            console.log("Student deleted!");
+            res.redirect("/students");
+    }
+  });
+};
+
+/* http://mongoosejs.com/docs/api.html#remove_remove
+
+Removes all documents that match conditions from the collection. To remove just the first document that matches conditions, set the single option to true.
+
+Example:
+Character.remove({ name: 'Eddard Stark' }, function (err) {});
+*/
+
+module.exports = StudentController;
