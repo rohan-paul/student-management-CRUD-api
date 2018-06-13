@@ -1,0 +1,11 @@
+{
+  "name": "student-management-crud-api",
+  "version": "1.0.0",
+  "description": "![](https://raw.github.com/rohan-paul/Hacking-School-Full-Stack-Bootcamp-Assignments/master/THS.jpg)",
+  "main": "random-code-2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
