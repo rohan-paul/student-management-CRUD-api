@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student REST API</title>
+</head>
+<body class="bg-success">
+    <div class="container">
+        <h3><a href="/students">Student List</a></h3>
+        <h1>Student Details</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td><%= student.name %></td>
+                </tr>
+                <tr>
+                        <td>Address</td>
+                        <td>:</td>
+                        <td><%= student.address %></td>
+                </tr>
+                <tr>
+                        <td>Position</td>
+                        <td>:</td>
+                        <td><%= student.position %></td>
+                </tr>
+                <tr>
+                        <td>Salary</td>
+                        <td>:</td>
+                        <td><%= employee.salary %>/year</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</body>
+</html>

@@ -15,6 +15,7 @@ mongoose.connect('mongodb://localhost/employee')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var students = require('./routes/students');
 
 var app = express();
 
