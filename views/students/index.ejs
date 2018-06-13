@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Students List</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <div class="container">
+        <h3><a href="/students/create"></a></h3>
+        <h1>Students List</h1>
+        <% if(students.length>0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (var i=0; i < students.length; i++) { %>
+                        <tr>
+                            <td><a href="/students/show/<%= students[i]._id"><%= students[i].name%></a></td>
+                            <td><%= students[i].positions%></td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <div>No Students Found</div>
+            <% } %>
+        </div>
+    </body>
+</html>
