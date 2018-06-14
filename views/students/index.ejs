@@ -19,8 +19,8 @@
                 <tbody>
                     <% for (var i=0; i < students.length; i++) { %>
                         <tr>
-                            <td><a href="/students/show/<%= students[i]._id"><%= students[i].name%></a></td>
-                            <td><%= students[i].positions%></td>
+                            <td><a href="/students/show/<%= students[i]._id%>"><%= students[i].name%></a></td>
+                            <td><%= students[i].positions %></td>
                         </tr>
                         <% } %>
                 </tbody>
@@ -31,3 +31,6 @@
         </div>
     </body>
 </html>
+
+<!-- For the above javascript for loop function within ejs template see below -
+    https://scotch.io/tutorials/use-ejs-to-template-your-node-application -->
