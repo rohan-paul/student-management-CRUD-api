@@ -25,11 +25,16 @@ router.post('/save', function(req, res) {
 //Edit student
 router.get('/edit/:id', function(req, res) {
     student.edit(req, res);
-});
+});0
 
 //Update a student
 router.post('/update/:id', function(req, res) {
     student.update(req, res);
 })
+
+// delete student
+router.post('/delete/:id', function(req, res, next) {
+    student.delete(req, res);
+});
 
 module.exports = router;

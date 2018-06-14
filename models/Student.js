@@ -5,7 +5,7 @@ const StudentSchema = new mongoose.Schema({
     address: String,
     position: String,
     salary: Number,
-    updated_at: { type: Date, default: Date.now }
+    updated_at: { type: Date, default: Date.now },
 })
 
 module.exports = mongoose.model('Student', StudentSchema)

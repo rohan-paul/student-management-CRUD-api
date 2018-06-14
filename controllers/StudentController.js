@@ -9,7 +9,7 @@ StudentController.list = function (req, res) {
         if (err) {
             console.log("Error : ", err);
         } else {
-            res.render("../views/students/index", {students: students})
+            res.render("../views/students/index", {students: students});
         }
     });
 };
@@ -27,12 +27,12 @@ StudentController.show = function(req, res) {
         if(err) {
             console.log("Error : ", err);
         } else {
-            res.render("../views/students/show")
+            res.render("../views/students/show", {student: student});
         }
-    })
+    });
 }
 
-// function to create new student
+// function to only render the form for creating a new student, but the actual database-write function to save the new created student will be done by save() function that I am writing after this.
 StudentController.create = function(req, res) {
     res.render('../views/students/create');
 }
@@ -40,14 +40,15 @@ StudentController.create = function(req, res) {
 //function to save new student
 StudentController.save = function(req, res) {
     var student = new Student(req.body);
+    console.log(student);
 
     student.save(function(err) {
         if(err) {
             console.log(err);
-            res.render("../views/students1/create")
+            res.render("../views/students/create");
         } else {
             console.log("Successfully created a student");
-            res.redirect('/students/show/' + student._id);
+            res.redirect('/students/show/'+student._id);
         }
     })
 }
