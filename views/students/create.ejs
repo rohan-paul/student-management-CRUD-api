@@ -15,37 +15,41 @@
             <a href="/students">Student List</a>
         </h3>
         <h1>Form for creating new student</h1>
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>
-                    <input type="text" name="name" />
-                </td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td>
-                    <textArea name="address"></textArea>
-                </td>
-            </tr>
-            <tr>
-                <td>Position</td>
-                <td>
-                    <input type="text" name="position">
-                </td>
+        <!-- The below form action amd method="post" is so important as without it, my save button was not posting to the database  -->
+        <form action="/students/save" method="post">
+            <table>
                 <tr>
-                    <td>Salary</td>
+                    <td>Name</td>
                     <td>
-                        <input type="number" name="salary" />
+                        <input type="text" name="name" />
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="submit">Save</button></td>
+                    <td>Address</td>
+                    <td>
+                        <textArea name="address"></textArea>
+                    </td>
                 </tr>
-            </tr>
-        </table>
+                <tr>
+                    <td>Position</td>
+                    <td>
+                        <input type="text" name="position">
+                    </td>
+                    <tr>
+                        <td>Salary</td>
+                        <td>
+                            <input type="number" name="salary" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Save</button>
+                        </td>
+                    </tr>
+                </tr>
+            </table>
+        </form>
     </div>
-
 </body>
 
 </html>

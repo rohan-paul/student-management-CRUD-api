@@ -61,7 +61,7 @@ StudentController.edit = function(req, res) {
         } else {
             res.render("../views/students/edit", {student: student})
         }
-    })
+    });
 }
 
 // Update a student

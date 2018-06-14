@@ -6,14 +6,14 @@
     </head>
     <body>
         <div class="container">
-            <h3><a href="/students">Student List</a></a></h3>
+            <h3><a href="/students">Student List</a></h3>
             <h1>Edit Student</h1>
-            <form action="/students/update/<%= student._id>" method="post">
+            <form action="/students/update/<%= student._id%>" method="post">
                 <table>
                     <tbody>
                         <tr>
                             <td>Name</td>
-                            <td><input type="text" name="name" value="<%= student.name %>"></td>
+                            <td><input type="text" name="name" value="<%= student.name %>" /></td>
                         </tr>
                         <tr>
                                 <td>Address</td>
@@ -21,11 +21,14 @@
                         </tr>
                         <tr>
                                 <td>Position</td>
-                                <td><input type="text" name="position" value="<%= student.position %>"></td>
+                                <td><input type="text" name="position" value="<%= student.position %>" /></td>
                         </tr>
                         <tr>
                                 <td>Salary</td>
-                                <td><input type="number" name="salary" value="<%= student.salary %>"></td>
+                                <td><input type="number" name="salary" value="<%= student.salary %>" /></td>
+                        </tr>
+                        <tr>
+                                <td colspan="2"><button type="submit">Update</button></td>
                         </tr>
                     </tbody>
                 </table>
