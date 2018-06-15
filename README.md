@@ -1,4 +1,4 @@
-Bare bone CRUD REST Api app for a student management system with mLab.
+Bare bone REST API implementation with CRUD ops for a student management system (mongo running in mLab). No authentication.
 
 A live version running [here at Heroku](https://fierce-sierra-18214.herokuapp.com/)
 

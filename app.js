@@ -18,7 +18,8 @@ mongoose.connect(config.database)
   .catch((err) => console.error(err));
 
 
-// for locally installed mongo - mongoose.connect('mongodb://localhost/student')
+// If I only had locally installed mongo (i.e. no mLab) then replace the first line above with the below line
+// mongoose.connect('mongodb://localhost/student')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
