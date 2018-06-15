@@ -16,6 +16,9 @@ mongoose.connect('mongodb://localhost/student')
   .then(() => console.log('Mongodb connection successful'))
   .catch((err) => console.error(err));
 
+
+// for locally installed mongo - mongoose.connect('mongodb://localhost/student')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var students = require('./routes/students');

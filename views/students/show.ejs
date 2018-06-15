@@ -24,22 +24,22 @@
                         <td><%= student.address %></td>
                 </tr>
                 <tr>
-                        <td>Position</td>
+                        <td>Batch</td>
                         <td>:</td>
-                        <td><%= student.position %></td>
+                        <td><%= student.batch %></td>
                 </tr>
                 <tr>
-                        <td>Salary</td>
+                        <td>Work Experience</td>
                         <td>:</td>
-                        <td><%= student.salary %>/year</td>
+                        <td><%= student.work_Experience %>/year</td>
                 </tr>
             </tbody>
 
         </table>
         <h3><a href="/students/edit/<%= student._id%>">EDIT</a></h3>
-        <from action="/students/delete/<%= student._id%>" method="post">
+        <form action="/students/delete/<%= student._id%>" method="post">
             <button type="submit">DELETE</button>
-        </from>
+        </form>
     </div>
 
 </body>

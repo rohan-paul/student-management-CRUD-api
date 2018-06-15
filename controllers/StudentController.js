@@ -70,8 +70,8 @@ StudentController.update = function(req, res) {
         $set: {
             name: req.body.name,
             address: req.body.address,
-            position: req.body.position,
-            salary: req.body.salary
+            batch: req.body.batch,
+            work_Experience: req.body.work_Experience
         }
     }, {new: true}, function(err, student) {
         if (err) {
