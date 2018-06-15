@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const config = require('./config/secret');
 
 var logger = require('morgan'); // For logging request details of whatever requests user has made to the server. Basically a logger, on any requests being made,it generates logs automatically. If the request is get then it will show get/ and then whatever URL the user is targetting at.
 
@@ -12,7 +13,7 @@ var mongoose = require('mongoose');
 // set mongoose.Promise to my ES6-style promise constructor and mongoose will use it.
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/student')
+mongoose.connect(config.database)
   .then(() => console.log('Mongodb connection successful'))
   .catch((err) => console.error(err));
 
